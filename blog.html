@@ -13,7 +13,7 @@
             padding: 20px;
         }
 
-        h2 {
+        h1 {
             color: #4a90e2;
             text-align: center;
             font-weight: 600;
@@ -83,18 +83,18 @@
 </head>
 <body>
 
-    <h2>Formato APA</h2>
+    <h1>Formato APA</h1>
 
     <label for="sourceType">Selecciona el tipo de fuente para ver ejemplos:</label>
     <select id="sourceType" onchange="updateTable()">
         <option value="facebook">Publicación de Facebook</option>
-        <option value="twitter">Publicación de Twitter</option>
+        <option value="x">Publicación de X</option>
         <option value="wikipedia">Artículo de Wikipedia</option>
     </select>
 
     <table id="citationTable">
         <tr>
-            <th>Qué se va a referenciar/citar</th>
+            <th>Fuente(s) a utilizar</th>
             <th>Cómo citar</th>
             <th>Cómo referenciar</th>
         </tr>
@@ -114,8 +114,8 @@
                 sourceText = 'Publicación de Facebook';
                 citation = '(Zuckerberg, 2024)';
                 reference = 'Zuckerberg, M. [@zuck]. (2024, Septiembre 21). Felicitaciones a Billie Joe, Tré y Mike por el 20.º aniversario de American Idiot y el 30.º aniversario de Dookie [Publicación de Facebook]. Recuperado de h  ttps://www.facebook.com/zuck/posts/pfbid0urRG5cbwBRqMJy gug8t1yrvK56mZLMKziKoBbeNThA5e1UUPMjuj7Y2cyJeFUZa4l? locale=es_LA ';
-            } else if (sourceType === 'twitter') {
-                sourceText = 'Publicación de Twitter';
+            } else if (sourceType === 'x') {
+                sourceText = 'Publicación de X';
                 citation = '(Sheinbaum, 2023)';
                 reference = 'Sheinbaum, C. [@Claudiashein]. (2023, Abril 10). Publicación sobre evento político [Tuit]. Twitter de https://x.com/Claudiashein/status/1842034412499730582';
             } else if (sourceType === 'wikipedia') {
