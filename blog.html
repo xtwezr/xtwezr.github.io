@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formato APA</title>
+    <title>Tabla Didáctica Formato APA</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -100,8 +100,8 @@
         </tr>
         <tr>
             <td id="sourceText">Publicación de Facebook</td>
-            <td id="citation">(Nombre de usuario, año)</td>
-            <td id="reference">Nombre de usuario. (Año, mes día). Contenido de la publicación [Publicación de Facebook]. Facebook. URL</td>
+            <td id="citation">(Zuckerberg, 2024)</td>
+            <td id="reference">Zuckerberg, M. [@zuck]. (2024, Septiembre 21). Felicitaciones a Billie Joe, Tré y Mike por el 20.º aniversario de American Idiot y el 30.º aniversario de Dookie [Publicación de Facebook]. Recuperado de h  ttps://www.facebook.com/zuck/posts/pfbid0urRG5cbwBRqMJy gug8t1yrvK56mZLMKziKoBbeNThA5e1UUPMjuj7Y2cyJeFUZa4l? locale=es_LA</td>
         </tr>
     </table>
 
@@ -112,16 +112,16 @@
 
             if (sourceType === 'facebook') {
                 sourceText = 'Publicación de Facebook';
-                citation = '(Nombre de usuario, año)';
-                reference = 'Nombre de usuario. (Año, mes día). Contenido de la publicación [Publicación de Facebook]. Facebook. URL';
+                citation = '(Zuckerberg, 2024)';
+                reference = 'Zuckerberg, M. [@zuck]. (2024, Septiembre 21). Felicitaciones a Billie Joe, Tré y Mike por el 20.º aniversario de American Idiot y el 30.º aniversario de Dookie [Publicación de Facebook]. Recuperado de h  ttps://www.facebook.com/zuck/posts/pfbid0urRG5cbwBRqMJy gug8t1yrvK56mZLMKziKoBbeNThA5e1UUPMjuj7Y2cyJeFUZa4l? locale=es_LA ';
             } else if (sourceType === 'twitter') {
                 sourceText = 'Publicación de Twitter';
-                citation = '(Nombre de usuario, año)';
-                reference = 'Nombre de usuario. (Año, mes día). Contenido del tuit [Tuit]. Twitter. URL';
+                citation = '(Sheinbaum, 2023)';
+                reference = 'Sheinbaum, C. [@Claudiashein]. (2023, Abril 10). Publicación sobre evento político [Tuit]. Twitter de https://x.com/Claudiashein/status/1842034412499730582';
             } else if (sourceType === 'wikipedia') {
                 sourceText = 'Artículo de Wikipedia';
-                citation = '(Título del artículo, año)';
-                reference = 'Título del artículo. (Año, mes día). En Wikipedia. URL';
+                citation = ' ("Espacio exterior", 2024)';
+                reference = 'Espacio exterior [En Wikipedia]. (2024, Octubre 3). Recuperado de https://es.wikipedia.org/wiki/Espacio_exterior ';
             }
 
             // Actualiza los contenidos de la tabla
