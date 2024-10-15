@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Didáctica Formato APA</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #4a90e2;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        th {
+            background-color: #4a90e2;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        td {
+            color: #333;
+            font-size: 16px;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        #citationTable {
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            table, th, td {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Formato APA</h2>
+
+    <label for="sourceType">Selecciona el tipo de fuente para ver ejemplos:</label>
+    <select id="sourceType" onchange="updateTable()">
+        <option value="facebook">Publicación de Facebook</option>
+        <option value="twitter">Publicación de Twitter</option>
+        <option value="wikipedia">Artículo de Wikipedia</option>
+    </select>
+
+    <table id="citationTable">
+        <tr>
+            <th>Qué se va a referenciar/citar</th>
+            <th>Cómo citar</th>
+            <th>Cómo referenciar</th>
+        </tr>
+        <tr>
+            <td id="sourceText">Publicación de Facebook</td>
+            <td id="citation">(Nombre de usuario, año)</td>
+            <td id="reference">Nombre de usuario. (Año, mes día). Contenido de la publicación [Publicación de Facebook]. Facebook. URL</td>
+        </tr>
+    </table>
+
+    <script>
+        function updateTable() {
+            var sourceType = document.getElementById('sourceType').value;
+            var sourceText, citation, reference;
+
+            if (sourceType === 'facebook') {
+                sourceText = 'Publicación de Facebook';
+                citation = '(Nombre de usuario, año)';
+                reference = 'Nombre de usuario. (Año, mes día). Contenido de la publicación [Publicación de Facebook]. Facebook. URL';
+            } else if (sourceType === 'twitter') {
+                sourceText = 'Publicación de Twitter';
+                citation = '(Nombre de usuario, año)';
+                reference = 'Nombre de usuario. (Año, mes día). Contenido del tuit [Tuit]. Twitter. URL';
+            } else if (sourceType === 'wikipedia') {
+                sourceText = 'Artículo de Wikipedia';
+                citation = '(Título del artículo, año)';
+                reference = 'Título del artículo. (Año, mes día). En Wikipedia. URL';
+            }
+
+            // Actualiza los contenidos de la tabla
+            document.getElementById('sourceText').textContent = sourceText;
+            document.getElementById('citation').textContent = citation;
+            document.getElementById('reference').textContent = reference;
+        }
+    </script>
+
+</body>
+</html>
