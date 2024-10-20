@@ -87,9 +87,31 @@
 
     <label for="sourceType">Selecciona el tipo de fuente para ver ejemplos:</label>
     <select id="sourceType" onchange="updateTable()">
+        <option value="pdfs">Archivos PDF</option>
+        <option value="instagram">Publicación de Instagram</option>
+        <option value="tiktok">Video de TikTok</option>
+        <option value="youtube">Video de Youtube</option>
         <option value="facebook">Publicación de Facebook</option>
         <option value="x">Publicación de X</option>
         <option value="wikipedia">Artículo de Wikipedia</option>
+        <option value="libroconautor">Libro con autor</option>
+        <option value="libroconeditor">Libro con editor</option>
+        <option value="libroselectronicos">Libros electronicos</option>
+        <option value="libroselectronicosconDOI">Libros electronicos con DOI</option>
+        <option value="capitulodeunlibro">Capitulo de un libro</option>
+        <option value="trabajodetesis">Trabajo de tesis</option>
+        <option value="articuloscientificos">Articulos cientificos</option>
+        <option value="enciclopedia">Enciclopedia</option>
+        <option value="periodico">Periodico</option>
+        <option value="diccionarios">Diccionarios</option>
+        <option value="pelicula">Pelicula</option>
+        <option value="cancion">Canción</option>
+        <option value="fotografias">Fotografias</option>
+        <option value="paginasweb">Paginas Web</option>
+        <option value="articulowebsinautor">Articulos Web sin autor</option>
+        <option value="articulowebsinfecha">Articulos Web sin fecha</option>
+        <option value="articulowebsintitulo">Articulo Web sin titulo</option>
+        <option value="articulowebsinfechanititulo">Articulo Web (Sin fecha- Sin titulo)</option>
     </select>
 
     <table id="citationTable">
@@ -99,9 +121,9 @@
             <th>Cómo referenciar</th>
         </tr>
         <tr>
-            <td id="sourceText">Publicación de Facebook</td>
-            <td id="citation">En una publicación reciente, Zuckerberg (2024) felicitó a los miembros de Green Day por sus aniversarios musicales</td>
-            <td id="reference">Zuckerberg, M. [@zuck]. (2024, Septiembre 21). Felicitaciones a Billie Joe, Tré y Mike por el 20.º aniversario de American Idiot y el 30.º aniversario de Dookie [Publicación de Facebook]. Recuperado de h  ttps://www.facebook.com/zuck/posts/pfbid0urRG5cbwBRqMJy gug8t1yrvK56mZLMKziKoBbeNThA5e1UUPMjuj7Y2cyJeFUZa4l? locale=es_LA</td>
+            <td id="sourceText">Archivos PDF</td>
+            <td id="citation">Sedgwick. E.K.(Autor) (2003)(año de publicación). Touching feeling: Affect, pedagogy, perfomativity.  Duke University Press. http://www.bu.edu/honoringeve/files/2009/09/paranoid-reading-and-reparative-reading.pdf (URL o DOI)</td>
+            <td id="reference">World Health Organization. (2021). Impacto del cambio climático en la salud. https://www.who.int/publications/i/item/impacto-cambio-climatico-salud</td>
         </tr>
     </table>
 
@@ -109,8 +131,23 @@
         function updateTable() {
             var sourceType = document.getElementById('sourceType').value;
             var sourceText, citation, reference;
-
-            if (sourceType === 'facebook') {
+            if(sourceType == 'pdfs') {
+                sourceText = 'Archivos PDF';
+                citation = 'Sedgwick. E.K.(Autor) (2003)(año de publicación). Touching feeling: Affect, pedagogy, perfomativity.  Duke University Press. http://www.bu.edu/honoringeve/files/2009/09/paranoid-reading-and-reparative-reading.pdf (URL o DOI)';
+                reference = 'World Health Organization. (2021). Impacto del cambio climático en la salud. https://www.who.int/publications/i/item/impacto-cambio-climatico-salud';
+            } else if(sourceType == 'instagram') {
+            sourceText = 'Publicación de Instagram';
+            citation = 'En una reciente publicación de Instagram, Gordon (2021) aseguró que “el 60% de los estudiantes universitarios no consiguen completar el proceso de titulación”.';
+            reference = 'Jiménez, Y. [@yeison_jimenez]. (2022, agosto 17). Comunicado de prensa sobre la salud de Dan Reynolds [Fotografía]. Instagram. ttps://www.instagram.com/p/CdoxukCl/';
+            } else if(sourceType == 'tiktok') {
+            sourceText = 'Video de Tiktok';
+            citation = 'Parking (2018) comentó mediante un video de TikTok que “algunos mercados son lugares físicos donde se reúnen compradores y vendedores”.';
+            reference = 'Juca, F. [@fernandojucamaldonado]. (2022, octubre 1). Citar en APA7 con Comunicados Personales. #Citar #apa7 #apa7ma [Video]. TikTok. https://www.tiktok.com/@fernandojucamaldonado/video/7149561525445856517';
+            } else if(sourceType == 'youtube') {
+            sourceText = 'Video de Youtube';
+            citation = 'Geron (2022) dio a conocer en un video de YouTube, que "la tecnología es uno de los pilares más importantes en la evolución de la humanidad". (13m27s).';
+            reference = 'Canal REDMÁS. (2017, septiembre 19). Antanas Mockus en Confesiones [Vídeo]. Youtube. https://youtu.be/de_4nTCHtJs';
+            } else if (sourceType === 'facebook') {
                 sourceText = 'Publicación de Facebook';
                 citation = 'En una publicación reciente, Zuckerberg (2024) felicitó a los miembros de Green Day por sus aniversarios musicales';
                 reference = 'Zuckerberg, M. [@zuck]. (2024, Septiembre 21). Felicitaciones a Billie Joe, Tré y Mike por el 20.º aniversario de American Idiot y el 30.º aniversario de Dookie [Publicación de Facebook]. Recuperado de h  ttps://www.facebook.com/zuck/posts/pfbid0urRG5cbwBRqMJy gug8t1yrvK56mZLMKziKoBbeNThA5e1UUPMjuj7Y2cyJeFUZa4l? locale=es_LA ';
@@ -122,8 +159,79 @@
                 sourceText = 'Artículo de Wikipedia';
                 citation = "Según el artículo de Wikipedia sobre el espacio exterior ('Espacio exterior' , 2024), la exploración espacial ha avanzado significativamente.";
                 reference = 'Espacio exterior [En Wikipedia]. (2024, Octubre 3). Recuperado de https://es.wikipedia.org/wiki/Espacio_exterior ';
+            } else if(sourceType == 'libroconautor') {
+            sourceText = 'Libro con autor';
+            citation = 'Según González (2019), la teoría del aprendizaje ha evolucionado considerablemente en los últimos años.';
+            reference = 'González, P. (2019). Teorías del aprendizaje y su evolución. Editorial Universitaria.';
+            } else if(sourceType == 'libroconeditor') {
+            sourceText = 'Libro con editor';
+            citation = 'Según Pérez (Ed., 2021), los estudios sobre psicología contemporánea han avanzado considerablemente.';
+            reference = 'Pérez, J. (Ed.). (2021). Estudios contemporáneos en psicología. Editorial Universitaria.';
+            } else if(sourceType == 'libroselectronicos') {
+            sourceText = 'Libros electronicos';
+            citation = 'Según Martínez (2020), la globalización ha influido en la educación de formas inesperadas. ';
+            reference = 'Martínez, R. (2020). La globalización y su impacto en la educación. Editorial Digital. https://doi.org/10.1234/abcd1234';
+            } else if(sourceType == 'libroselectronicosconDOI') {
+            sourceText = 'Libros electronicos con DOI';
+            citation = 'Citando a The Socioeconomic Dimensions of Electronic Publishing: “The transience of Web sites, coupled with the difficulty of discovering and retrieving their contents, causes serious problems for libraries and other institutions that attempt to integrate Web documents into local systems. Even many of the URLs found in databases such as online catalogs are no longer valid.” (Davidson, Lloyd A.; Douglas, Kimberly. 1998)';
+            reference = 'Sáenz de Jubera Ocón, M., & Alonso Ruíz, R. A. (Coords.). (2021). Ocio y educación: experiencias, innovación y transferencia. Universidad de La Rioja.';
+            } else if(sourceType == 'capitulodeunlibro') {
+            sourceText = 'Capitulo de un libro';
+            citation = 'Citando un fragmento de un capítulo del libro La piedra filosofal: “No podría encontrar a gente más distinta a nosotros. Y tienen ese hijo... lo vi pateando a su madre mientras subían las escaleras, gritando por caramelos. ¡Harry Potter vendrá a vivir aquí! (...) ¡Esa gente jamás comprenderá a Harry! ¡Será famoso... una leyenda... no me sorprendería que hoy sea conocido en el futuro como el día de Harry Potter... escribirán libros sobre Harry... cada niño en el mundo conocerá su nombre!“ (Rowling J.K. 1997)';
+            reference = 'García, L. M. (2024). La evolución del lenguaje. En J. Pérez (Ed.), Teorías modernas del lenguaje (pp. 45-67). Editorial Universitaria.';
+            } else if(sourceType == 'trabajodetesis') {
+            sourceText = 'Trabajo de tesis';
+            citation = 'Según Felipe : “El interés por la vida y el envejecimiento ha sido una constante en la historia de la humanidad, a medida que el hombre madura y se transforma interiormente reacciona de manera diferente ante las influencias culturales y sociales, sobrevienen cambios psicológicos que influyen en los pensamientos, sentimientos, creencias, valores, actitudes, conducta y personalidad” . (García, F. 2014)';
+            reference = 'González, M. (2024). Estudio sobre la educación virtual en tiempos de pandemia (Tesis doctoral). Universidad de Madrid. https://repositorio.unimadrid.edu';
+           } else if(sourceType == 'articuloscientificos') {
+            sourceText = 'Articulos cientificos';
+            citation = '(Garcia, 2020)';
+            reference = 'Garcia,J.(2020.Impacto del cambio climático en la biodiversidad.*Revista de ciencias ambientales , 35(3), 45-60. https://doi.org/10.1234/rca.2020.002';
+            } else if(sourceType == 'enciclopedia') {
+            sourceText = 'Enciclopedia';
+            citation = '(Mendoza,2018)';
+            reference = 'Mendoza,P.(2018). Biología marina. En R. Perez (Ed), **Enciclopedia de ciencias naturales** (3ra ed., pp 120-135). Editorial Natural';
+            } else if(sourceType == 'periodico') {
+            sourceText = 'Periodico';
+            citation = '(Lopez, 2021)';
+            reference = 'Lopez, M. (2021, 15 de agosto). Nuevas Políticas ambientales en la región. **El Diario Ecologico**. https://eldiarioecologico.com/politicas-ambientales-2021';
+            } else if(sourceType == 'diccionarios') {
+            sourceText = 'Diccionarios';
+            citation = 'Según el Diccionario de la lengua española (2014), la palabra “paradigma” se refiere a un ejemplo o modelo.';
+            reference = 'Real Academia Española. (2014). Diccionario de la lengua española (23.ª ed.). Recuperado de https://dle.rae.es';
+            } else if(sourceType == 'pelicula') {
+            sourceText = 'Pelicula';
+            citation = 'En Titanic (Cameron, 1997), se exploran temas de amor y sacrificio';
+            reference = 'Cameron, J. (Productor), & Cameron, J. (Director). (1997). Titanic [Película]. 20th Century Fox.';
+            } else if(sourceType == 'cancion') {
+            sourceText = 'Canción';
+            citation = 'Según Swift (2020), en su canción Cardigan';
+            reference = 'Swift, T. (2020). Cardigan [Canción]. En Folklore. Republic Records.';
+            } else if(sourceType == 'fotografias') {
+            sourceText = 'Fotografias';
+            citation = '(Smith, 2019, p. 45)';
+            reference = 'Smith, J. (2019). Nubes sobre el mar [Fotografía]. En M. Davis (Ed.), Fotografía contemporánea (p. 45). Editorial Fotográfica.';
+            } else if(sourceType == 'paginasweb') {
+            sourceText = 'Paginas Web';
+            citation = 'La investigación muestra una tendencia creciente en el uso de la tecnología (“Tendencias de tecnología”, 2021).';
+            reference = 'Tendencias de tecnología para el 2023. (2021, diciembre 15). Tech Innovators. https://www.techinnovators.com/tendencias2023';
+            } else if(sourceType == 'articulowebsinautor') {
+            sourceText = 'Articulo web sin autor';
+            citation = '“Cómo proteger tu privacidad en línea” (2023). TechGuru.';
+            reference = 'La nueva era de la realidad aumentada” (2024). Tech Innovations. https://www.techinnovations.com/ur-realidad-aumentada';
+            } else if(sourceType == 'articulowebsinfecha') {
+            sourceText = 'Articulo web sin fecha';
+            citation = 'Según Rodríguez (2022), la gestión eficaz del tiempo es clave para aumentar la productividad.';
+            reference = 'Gómez, L. (2021). Psicología social: Teorías y aplicaciones. Editorial Universitaria';
+            } else if(sourceType == 'articulowebsintitulo') {
+            sourceText = 'Articulo web sin titulo';
+            citation = 'La gestión eficaz del tiempo es clave para aumentar la productividad (Rodríguez, 2022).';
+            reference = 'Fernández, A. (2019). Teorías del aprendizaje. En R. Martínez (Ed.), Fundamentos de la educación (pp. 45-67). Editorial Educativa.';
+            } else if(sourceType == 'articulowebsinfechanititulo') {
+            sourceText = 'Articulo web (sin fecha - sin titulo)';
+            citation = 'La Organización Mundial de la Salud (OMS, 2020) destaca la importancia de la vacunación para prevenir enfermedades infecciosas.';
+            reference = 'Ruiz, M., & Soto, P. (2020). Efectos de la tecnología en la atención. Revista de Psicología Aplicada, 15(3), 123-145. https://doi.org/10.1234/rpa.2020.0023';
             }
-
             // Actualiza los contenidos de la tabla
             document.getElementById('sourceText').textContent = sourceText;
             document.getElementById('citation').textContent = citation;
